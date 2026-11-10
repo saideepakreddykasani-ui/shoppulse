@@ -218,3 +218,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# ---- ShopPulse additions ----
+.env
+pipeline/data/raw/
+*.csv
+node_modules/
+frontend/dist/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.vscode/
+.DS_Store
+Thumbs.db

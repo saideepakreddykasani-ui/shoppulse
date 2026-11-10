@@ -1,0 +1,42 @@
+[project]
+name = "backend"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.20.1",
+    "fastapi>=0.162.2",
+    "psycopg[binary]>=3.3.8",
+    "pydantic-settings>=2.16.2",
+    "sqlalchemy>=2.0",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "coverage>=7.17.2",
+    "httpx>=0.28.1",
+    "mypy>=2.4.1",
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+]
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["slowapi.*", "pwdlib.*", "redis.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
